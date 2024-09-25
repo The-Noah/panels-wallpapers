@@ -13,12 +13,14 @@ if (!(await exists("./wallpapers"))) {
 for (const image of wallpapers) {
   const [id, data] = image;
 
-  if (!data.dhd) {
+  const originalUrl = data.dhd ?? data.dsd
+
+  if (!originalUrl) {
     console.error("Url not found!");
     continue;
   }
 
-  const url = new URL(data.dhd);
+  const url = new URL(originalUrl);
 
   console.log(`Downloading ${id}... (${url})`);
 
@@ -32,9 +34,7 @@ for (const image of wallpapers) {
 
   const reader = readerFromStreamReader(streamReader);
 
-  const extension = url.pathname.split(".").at(-1);
-
-  const file = await Deno.open(`./wallpapers/${id}.${extension}`, {
+  const file = await Deno.open(`./wallpapers/${url.pathname.split("/").at(-1)}`, {
     write: true,
     create: true,
   });
