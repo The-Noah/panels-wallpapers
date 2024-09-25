@@ -1,6 +1,6 @@
 # panels-wallpapers
 
-> ![IMPORTANT]
+> [!IMPORTANT]
 > I am not responsible for any legal reprocutions from this code. Run at your own risk.
 
 Easily and freely download all wallpapers from https://panels.art.
