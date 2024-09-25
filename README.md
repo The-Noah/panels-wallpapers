@@ -11,7 +11,11 @@ Easily and freely download all wallpapers from https://panels.art.
 deno run --allow-net --allow-read --allow-write https://raw.githubusercontent.com/The-Noah/panels-wallpapers/refs/heads/master/app.ts
 ```
 
-- Download and run:
+- Open the created wallpapers folder!
+
+---
+
+- If you'd rather, you can download the repository and run locally:
 
 ```bash
 git clone https://github.com/The-Noah/panels-wallpapers.git
@@ -19,4 +23,6 @@ cd panels-wallpapers
 deno run --allow-net --allow-read --allow-write app.ts
 ```
 
-- Open the created wallpapers folder!
+## License
+
+[MIT](LICENSE)
