@@ -26,6 +26,12 @@ cd panels-wallpapers
 deno run --allow-net --allow-read --allow-write app.ts
 ```
 
+## FAQ
+
+## Q: Is this legal?
+
+I'm not a lawyer. All this code does is download publicly available files through the official app's API. There are no exploits or shady tactics going on.
+
 ## License
 
 [MIT](LICENSE)
