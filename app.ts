@@ -4,11 +4,11 @@ import {readerFromStreamReader} from "https://deno.land/std/io/mod.ts";
 const data = await fetch("https://storage.googleapis.com/panels-api/data/20240916/media-1a-i-p~s").then((res) => res.json());
 const wallpapers = Object.entries(data.data);
 
-console.log(`Found ${wallpapers.length} wallpapers`);
-
 if (!(await exists("./wallpapers"))) {
   await Deno.mkdir("./wallpapers");
 }
+
+let downloaded = 0;
 
 for (const image of wallpapers) {
   const [id, data] = image;
@@ -16,7 +16,6 @@ for (const image of wallpapers) {
   const originalUrl = data.dhd ?? data.dsd
 
   if (!originalUrl) {
-    console.error("Url not found!");
     continue;
   }
 
@@ -42,4 +41,8 @@ for (const image of wallpapers) {
   await Deno.copy(reader, file);
 
   file.close();
+
+  downloaded++;
 }
+
+console.log(`Downloaded ${downloaded} wallpapers`);
